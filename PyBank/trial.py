@@ -61,7 +61,7 @@ with open(csv_path) as csvfile:
     print("Greatest Increase in Profits:", (date[mth_change.index(max_increase) + 1]), "($"+str(max_increase)+")")
     print("Greatest Decrease in Profits:", (date[mth_change.index(max_decrease) + 1]), "($"+str(max_decrease)+")")
 
-    
+
     
     
 
