@@ -47,20 +47,23 @@ with open(csv_path) as csvfile:
           
     
     # Print the result on screen & output file
-    print("Financial Analysis")
-    print("----------------------------")
-    print("Total Months:", lines)
-    print("Total: $"+str(net_total))
-    print("Average Change: $"+str(round(avg_mth_change, 2)))
-
-     
+    output_path = os.path.join(".", "Analysis", "Output.txt")
+    with open(output_path, "w") as textfile:
     
-    max_increase = max(mth_change)
-    max_decrease = min(mth_change)
+        print("Financial Analysis", file=textfile)
+        print("----------------------------", file=textfile)
+        print("Total Months:", lines, file=textfile)
+        print("Total: $"+str(net_total), file=textfile)
+        print("Average Change: $"+str(round(avg_mth_change, 2)), file=textfile)   
+    
+        max_increase = max(mth_change)
+        max_decrease = min(mth_change)
 
-    print("Greatest Increase in Profits:", (date[mth_change.index(max_increase) + 1]), "($"+str(max_increase)+")")
-    print("Greatest Decrease in Profits:", (date[mth_change.index(max_decrease) + 1]), "($"+str(max_decrease)+")")
+        print("Greatest Increase in Profits:", (date[mth_change.index(max_increase) + 1]), "($"+str(max_increase)+")", file=textfile)
+        print("Greatest Decrease in Profits:", (date[mth_change.index(max_decrease) + 1]), "($"+str(max_decrease)+")", file=textfile)
 
+    
+   
     
     
     
