@@ -10,7 +10,7 @@ with open(csv_path) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")  
     csv_header = next(csvreader)
 
-    # Total number of months - Mehtod 1
+    # Total number of months 
     lines = len(list(csvreader))
     
     # Return to the top of the csv
@@ -47,6 +47,12 @@ with open(csv_path) as csvfile:
           
     
     # Print the result on screen & output file
+    print("Financial Analysis")
+    print("----------------------------")
+    print("Total Months:", lines)
+    print("Total: $"+str(net_total))
+    print("Average Change: $"+str(round(avg_mth_change, 2))) 
+    
     output_path = os.path.join(".", "Analysis", "Output.txt")
     with open(output_path, "w") as textfile:
     
@@ -61,6 +67,9 @@ with open(csv_path) as csvfile:
 
         print("Greatest Increase in Profits:", (date[mth_change.index(max_increase) + 1]), "($"+str(max_increase)+")", file=textfile)
         print("Greatest Decrease in Profits:", (date[mth_change.index(max_decrease) + 1]), "($"+str(max_decrease)+")", file=textfile)
+    
+    print("Greatest Increase in Profits:", (date[mth_change.index(max_increase) + 1]), "($"+str(max_increase)+")")
+    print("Greatest Decrease in Profits:", (date[mth_change.index(max_decrease) + 1]), "($"+str(max_decrease)+")")
 
     
    
